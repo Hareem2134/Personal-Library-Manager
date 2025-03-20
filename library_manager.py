@@ -6,15 +6,23 @@ LIBRARY_FILE = "library.txt"
 
 # Load the library from file (if exists)
 def load_library():
-    if os.path.exists(LIBRARY_FILE):
+    if not os.path.exists(LIBRARY_FILE):  
+        return []  # Return an empty list if file does not exist
+
+    if os.path.getsize(LIBRARY_FILE) == 0:  
+        return []  # Return empty list if file is empty
+
+    try:
         with open(LIBRARY_FILE, "r") as file:
             return json.load(file)  # Load data from JSON format
-    return []  # Return an empty list if file does not exist
+    except json.JSONDecodeError:
+        print("\n⚠ Error loading library file. The file may be corrupted. Starting with an empty library.\n")
+        return []
 
 # Save the library to file
 def save_library(library):
     with open(LIBRARY_FILE, "w") as file:
-        json.dump(library, file, indent=4)
+        json.dump(library, file, indent=4)  # Save in readable JSON format
 
 # Add a book to the library
 def add_book(library):
@@ -26,6 +34,7 @@ def add_book(library):
 
     book = {"title": title, "author": author, "year": year, "genre": genre, "read": read}
     library.append(book)
+    save_library(library)  # Save immediately
     print(f"\n✅ '{title}' added successfully!\n")
 
 # Remove a book from the library
@@ -34,6 +43,7 @@ def remove_book(library):
     for book in library:
         if book["title"].lower() == title.lower():
             library.remove(book)
+            save_library(library)  # Save immediately
             print(f"\n❌ '{title}' removed successfully!\n")
             return
     print("\n⚠ Book not found!\n")
@@ -88,7 +98,7 @@ def display_statistics(library):
 
 # Main menu
 def main():
-    library = load_library()
+    library = load_library()  # Load library from file
 
     while True:
         print("\n📚 Welcome to Your Personal Library Manager!\n")
@@ -112,8 +122,8 @@ def main():
         elif choice == "5":
             display_statistics(library)
         elif choice == "6":
-            save_library(library)
-            print("\n📁 Library saved. Goodbye!\n")
+            save_library(library)  # Save before exiting
+            print("\n📁 Library saved successfully. Goodbye!\n")
             break
         else:
             print("\n⚠ Invalid choice! Please try again.\n")

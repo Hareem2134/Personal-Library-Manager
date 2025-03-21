@@ -1,20 +1,25 @@
 # **📚 Personal Library Manager**  
 
 ## **📌 Overview**  
-**Personal Library Manager** is a **command-line Python application** designed for **efficiently managing personal book collections**.  
-Users can **add, remove, search, and display books**, along with viewing **statistics** such as total books and reading progress.  
-The program **automatically saves data** to a file (`library.txt`), ensuring **permanent storage** between sessions.  
+**Personal Library Manager** is a **versatile book management tool** available in **two versions**:  
+
+🔹 **CLI Version (`library_manager_cli.py`)** – A **command-line app** to **add, remove, search, and track books**, ensuring **persistent storage in `library.txt`**.  
+
+🔹 **Streamlit Version (`library_manager_streamlit.py`)** – A **web-based app** with a **modern UI**, allowing users to manage their library **online**, with data stored in **`library.json`**.  
+
+Both versions **store book data automatically**, ensuring your collection is always saved. 🚀  
 
 ---
 
 ## **🚀 Features**  
+
 ✅ **Add Books** – Enter title, author, publication year, genre & read status.  
 ✅ **Remove Books** – Delete books from the library using their title.  
 ✅ **Search Books** – Find books by title or author.  
 ✅ **Display All Books** – View a formatted list of stored books.  
 ✅ **Statistics** – Get insights on total books & percentage read.  
-✅ **Persistent Storage** – Books are **saved & loaded automatically** from `library.txt`.  
-✅ **User-Friendly** – Simple **menu-driven interface**, suitable for beginners.  
+✅ **Persistent Storage** – Books are **saved & loaded automatically** (`library.txt` for CLI, `library.json` for Streamlit).  
+✅ **User-Friendly** – Available in **CLI and Streamlit UI** versions.  
 
 ---
 
@@ -22,46 +27,44 @@ The program **automatically saves data** to a file (`library.txt`), ensuring **p
 
 ### **1️⃣ Clone the Repository**  
 ```bash
-git clone https://github.com/yourusername/personal-library-manager.git
+git clone https://github.com/Hareem2134/Personal-Library-Manager
 cd personal-library-manager
 ```
 
 ### **2️⃣ Install Dependencies**  
 ```bash
-pip install -r requirements.txt  # No additional dependencies required
-```
-
-### **3️⃣ Run the Application**  
-```bash
-python library_manager.py
+pip install -r requirements.txt
 ```
 
 ---
 
 ## **📖 How to Use**  
 
-1️⃣ **Run the script** using:  
-   ```bash
-   python library_manager.py
-   ```
-2️⃣ **Choose an option** from the menu:  
+### **📌 CLI Version (`library_manager_cli.py`)**  
+Run the command-line version:  
+```bash
+python library_manager_cli.py
+```
+📁 **Books are stored in `library.txt` automatically.**  
 
-   - **Add a book** → Enter book details (title, author, year, genre, read status).  
-   - **Remove a book** → Delete by title.  
-   - **Search for a book** → Find by title or author.  
-   - **Display all books** → View all stored books in a formatted list.  
-   - **View statistics** → Get total book count & percentage read.  
-   - **Exit** → Saves & closes the program.  
+---
 
-3️⃣ **Books are automatically saved** to `library.txt` for future sessions.  
+### **📌 Streamlit Web App (`library_manager_streamlit.py`)**  
+Run the web-based version:  
+```bash
+streamlit run library_manager_streamlit.py
+```
+📁 **Books are stored in `library.json` automatically.**  
+
+🔗 **[Try the Live App](https://personal-library-manager-by-hareemfarooqi.streamlit.app/)**  
 
 ---
 
 ## **📥 File Handling**  
 
-📁 **Books are stored in `library.txt`** in JSON format.  
-🔄 **Data is loaded automatically** when the program starts.  
-💾 **Ensures permanent storage** of your book collection.  
+📁 **CLI Version** – Books are stored in `library.txt`.  
+📁 **Streamlit Version** – Books are stored in `library.json`.  
+🔄 **Data is automatically saved & loaded** when the program starts.  
 
 ---
 
@@ -84,7 +87,7 @@ For queries, feedback, or collaboration, connect with me:
 
 ## **🚀 Future Improvements**  
 
-💡 **Develop a GUI version** using **Tkinter or Streamlit**.  
+💡 **Enhance UI with more customization in Streamlit**.  
 💡 **Enable sorting** by **title, author, or publication year**.  
 💡 **Export book data** to a **CSV file** for easy sharing.  
-💡 **Implement a backup system** to prevent accidental data loss.  
+💡 **Implement a backup system** to prevent accidental data loss.
